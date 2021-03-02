@@ -1,0 +1,191 @@
+<!-- AUTHOR: Keerthana Uppala
+This is the Student survey form with required and optional fields, along with Raffle text box, submit and cancel button -->
+<html>
+<head>
+  <title>Student Survey Form</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="StudentSurvey.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+  <script>
+    function validateRaffle() {
+      var errormessage = document.getElementById("errormessage");
+      errormessage.innerHTML = "";
+
+      var data = document.getElementById("raffle").value;
+      var dataArr = data.split(',').map(Number)
+
+      if (dataArr.length < 10) {
+        errormessage.innerHTML = "Please enter atleast 10 comma separated numbers";
+        return false;
+      }
+
+      for (var x of dataArr) {
+        x = x - '0';
+        if (x < 1 || x > 100 || isNaN(x)) {
+          errormessage.innerHTML = "Please enter comma separated numbers ranging from 1 through 100 ";
+          return false;
+        }
+      }
+    }
+
+    function errorMessageReset() {
+      document.getElementById("errormessage").innerHTML = "";
+    }
+</script>
+</head>
+
+<body>
+  <div id="home" class="background">
+    <div class="w3-modal-content w3-card-4 w3-animate-top" style="max-width:1000px">
+      <div class="w3-center"><br>
+        <h1>Student Survey Form</h1>
+      </div>
+      <form class="w3-container" method="post" autocomplete="on">
+        <div class="astrickLabel"><span class="required">*</span>indicates required fields</div>
+        <div class="w3-row w3-section">
+          <div class="w3-col" style="width:150px">First name<span class="required">*</span></div>
+          <div class="w3-rest">
+            <input id="name" class="w3-input w3-border w3-round" name="Firstname" type="text"
+              placeholder="Enter your first name" autofocus required />
+          </div>
+        </div>
+        <div class="w3-row w3-section">
+          <div class="w3-col" style="width:150px">Last name<span class="required">*</span></div>
+          <div class="w3-rest">
+            <input id="name" class="w3-input w3-border w3-round" name="Lastname" type="text"
+              placeholder="Enter your last name" required/>
+          </div>
+        </div>
+        <div class="w3-row w3-section">
+          <div class="w3-col" style="width:150px">Street Address<span class="required">*</span></div>
+          <div class="w3-rest">
+            <input id="address" class="w3-input w3-border" name="street" type="text" placeholder="#1234 SummerTree Rd"
+              required />
+          </div>
+        </div>
+        <div class="w3-row w3-section">
+          <div class="w3-col" style="width:150px">City<span class="required">*</span></div>
+          <div class="w3-rest">
+            <input id="name" class="w3-input w3-border w3-round" name="City" type="text"
+              placeholder="City"required/>
+          </div>
+        </div>
+        <div class="w3-row w3-section">
+          <div class="w3-col" style="width:150px">State<span class="required">*</span></div>
+          <div class="w3-rest">
+            <input id="name" class="w3-input w3-border w3-round" name="State" type="text"
+              placeholder="State" required />
+          </div>
+        </div>
+       
+        <div class="w3-row w3-section">
+          <div class="w3-col" style="width:150px">Zip<span class="required">*</span></div>
+          <div class="w3-rest">
+            <input id="zip" class="w3-input w3-border" name="zip" type="text" placeholder="#####" required />
+          </div>
+        </div>
+        <div class="w3-row w3-section">
+          <div class="w3-col" style="width:150px">Telephone number<span class="required">*</span></div>
+          <div class="w3-rest">
+            <input class="w3-input w3-border" name="telephone_number" type="tel" placeholder="(###) ###-####"
+              pattern="\(\d{3}\) +\d{3}-\d{4}" required />
+          </div>
+        </div>
+        <div class="w3-row w3-section">
+          <div class="w3-col" style="width:150px">Email<span class="required">*</span></div>
+          <div class="w3-rest">
+            <input id="email" class="w3-input w3-border" name="email" type="email" placeholder="name@domain.com"
+              required />
+          </div>
+        </div>
+        <div class="w3-row w3-section">
+          <div class="w3-col" style="width:150px">Date Of Survey<span class="required">*</span></div>
+          <div class="w3-rest">
+            <input class="w3-input w3-border" name="date" type="date" required />
+          </div>
+        </div>
+        <div class="w3-row w3-section">
+          <div class="w3-row">Select what you like most about the campus</div>
+          <div class="w3-rest">
+            <p><input class="w3-check" id="students" name="thingsliked" type="checkbox" value="Students"><label
+                for="students">Students</label></p>
+            <p><input class="w3-check" id="location" name="thingsliked" type="checkbox" value="Location"><label
+                for="location">Location</label></p>
+            <p><input class="w3-check" id="campus" name="thingsliked" type="checkbox" value="Campus"><label
+                for="campus">Campus</label></p>
+            <p><input class="w3-check" id="atmosphere" name="thingsliked" type="checkbox" value="Atmosphere"><label
+                for="atmosphere">Atmosphere</label></p>
+            <p><input class="w3-check" id="dorm" name="thingsliked" type="checkbox" value="Dorm rooms"><label
+                for="dorm">Dorm rooms</label></p>
+            <p><input class="w3-check" id="sports" name="thingsliked" type="checkbox" value="Sports"><label
+                for="sports">Sports</label></p>
+          </div>
+        </div>
+        <div class="w3-row w3-section">
+          <div class="w3-row">How did you get to know about our university?</div>
+          <div class="w3-rest">
+            <p><input class="w3-radio" id="friends" name="howtouniversity" type="radio" value="Friends"><label
+                for="friends">Friends</label></p>
+            <p><input class="w3-radio" id="television" name="howtouniversity" type="radio" value="Television"><label
+                for="television">Television</label></p>
+            <p><input class="w3-radio" id="internet" name="howtouniversity" type="radio" value="Internet"><label
+                for="internet">Internet</label></p>
+            <p><input class="w3-radio" id="other" name="howtouniversity" type="radio" value="Other"><label
+                for="other">Other</label></p>
+          </div>
+        </div>
+        <div class="w3-row w3-section">
+          <div class="w3-col" style="width:400px">Select how likely would you recommend this school</div>
+          <div class="w3-rest">
+            <select class="w3-input w3-border" name="likely">
+              <option selected>Very Likely</option>
+              <option>Likely</option>
+              <option>Unlikely</option>
+            </select>
+          </div>
+        </div>
+        <div class="w3-row w3-section">
+          <div class="w3-col" style="width:150px">Raffle</div>
+          <div class="w3-rest">
+            <input id="raffle" class="w3-input w3-border w3-round" name="raffle" type="text" onblur="validateRaffle()"
+              placeholder=" Enter at least ten comma separated values between 1 and 100 " />
+          </div>
+        </div>
+        <div id="errormessage"></div>
+        <div class="w3-row w3-section">
+          <div class="w3-row">Additional Comments</div>
+          <div class="w3-rest">
+            <textarea class="w3-input w3-border" name="comments" rows="4" cols="36">Enter comments here.</textarea>
+          </div>
+        </div>
+        <div class="buttonDetails">
+          <button type="submit" class="button">Submit</button>
+          <button type="reset" onclick="errorMessageReset()" class="button">Cancel</button>
+        </div><br>
+
+        <footer class="w3-container  w3-dark-grey">
+          <div class="w3-row-padding">
+            <div class="w3-half">
+              <p><a href="https://www2.gmu.edu/" target="_blank"><img src="mason-logo.png" width="180px"
+                    height="100px"></a></p>
+            </div>
+            <div class="w3-quarter">
+              <p>Department of Computer Science<br>Nguyen Engineering Building<br>4400 University Drive<br>Fairfax, VA
+                22030
+              <p>
+            </div>
+            <div class="w3-quarter">
+              <p>Contact<br>703-993-1530 (P)<br>703-993-1710 (F)</p>
+              <p><a href="#home" class="w3-button w3-light-grey w3-left-align" style="margin-top:25px;"><i
+                    class="fa fa-arrow-up w3-margin-right"></i></a></p><span>Keerthana Uppala's Page</span>
+            </div>
+          </div>
+        </footer>
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>

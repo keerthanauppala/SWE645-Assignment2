@@ -1,0 +1,57 @@
+@charset "UTF-8";
+.background{background-color: grey;}
+
+a:link {color:#e2a82b;}
+
+a:visited {color:#006633;}
+/*AUTHOR: Keerthana Uppala
+This is the external CSS of the index.html (Student survey form)*/
+a:hover {font-size:150%; color:blue;}
+
+footer{
+    background-image: url("footerImage.jpg");
+}
+
+.required { color: red; }
+
+.w3-col, .astrickLabel, .w3-row, .linkText, #greetMessage{ 
+  color:  #006633;
+  padding-top: 6px;
+}
+
+.w3-center{background-color: #006633;}
+
+label{ padding: 6px;}
+
+.buttonDetails{padding: 15px;}
+
+.button {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 15px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color:#006633;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.button:hover {background-color: #3e8e41}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+ #validateZip, #errormessage { 
+   color: red;
+   padding-top: 6px; }
+
+ #name-dialog, #address-dialog, #email-dialog, #check-dialog, #radio-dialog {
+   text-align: center;
+   }
