@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: swe645hw2-deployment
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: swe645hw2
