@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: swe645hw2-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: swe645hw2
+  template:
+    metadata:
+      labels:
+        app: swe645hw2
+    spec:
+      containers:
+      - name: swe645hw2
+        image: keerthanauppala/studentsurveyform
+        ports:
+        - containerPort: 8080
+        imagePullPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: swe645hw2-service
+  namespace: default
+spec:
+  type: NodePort
+  selector:
+    app: swe645hw2
+  ports:
+  - port: 8080
+    targetPort: 8080
+    nodePort: 30001
